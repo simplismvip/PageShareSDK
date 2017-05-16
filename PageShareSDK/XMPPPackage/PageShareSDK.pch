@@ -1,0 +1,17 @@
+//
+//  PageShareSDK.pch
+//  PageShareSDK
+//
+//  Created by JM Zhao on 2017/5/16.
+//  Copyright © 2017年 JunMing. All rights reserved.
+//
+
+#ifndef PageShareSDK_pch
+#define PageShareSDK_pch
+
+#import "XMPPFramework.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PageShareSDK_pch */

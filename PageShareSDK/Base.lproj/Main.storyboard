@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="编辑消息" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pu4-DT-eDq">
+                                <rect key="frame" x="-1" y="43" width="377" height="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接收消息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fa8-v8-2yM">
+                                <rect key="frame" x="0.0" y="81" width="375" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.038874142520000002" blue="0.05704498409" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8e-ef-WNd">
+                                <rect key="frame" x="156" y="105" width="62" height="30"/>
+                                <state key="normal" title="发送消息"/>
+                                <connections>
+                                    <action selector="sendMsg:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v3S-1P-sJk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQg-jw-uOC">
+                                <rect key="frame" x="149" y="158" width="77" height="30"/>
+                                <state key="normal" title="注册新账号"/>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ePE-Fi-5kJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZI-rs-a4t">
+                                <rect key="frame" x="85" y="203" width="77" height="30"/>
+                                <state key="normal" title="创建聊天室"/>
+                                <connections>
+                                    <action selector="creatChatRoom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ONb-E6-2z9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urk-v2-lCI">
+                                <rect key="frame" x="85" y="250" width="77" height="30"/>
+                                <state key="normal" title="加入聊天室"/>
+                                <connections>
+                                    <action selector="joinChatRoom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ha6-mR-ldJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pk-dh-hy6">
+                                <rect key="frame" x="210" y="203" width="77" height="30"/>
+                                <state key="normal" title="离开聊天室"/>
+                                <connections>
+                                    <action selector="leaveCHatRoom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="20n-BG-47G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quk-pa-sRf">
+                                <rect key="frame" x="210" y="250" width="77" height="30"/>
+                                <state key="normal" title="注销聊天室"/>
+                                <connections>
+                                    <action selector="destoryChatRoom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cnp-ow-NFd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTf-Nt-gLk">
+                                <rect key="frame" x="251" y="290" width="108" height="30"/>
+                                <state key="normal" title="发消息到聊天室"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbE-G6-hHz">
+                                <rect key="frame" x="16" y="290" width="123" height="30"/>
+                                <state key="normal" title="邀请加入到聊天室"/>
+                                <connections>
+                                    <action selector="invideToChatRoom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V9p-2A-d3k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPQ-kq-8LE">
+                                <rect key="frame" x="251" y="290" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="发消息到聊天室"/>
+                                <connections>
+                                    <action selector="sendMessageToChatRoom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oa8-Aq-8Mv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSD-nM-SLI">
+                                <rect key="frame" x="179" y="290" width="31" height="30"/>
+                                <state key="normal" title="登出"/>
+                                <connections>
+                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dsk-pC-gyw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NSD-nM-SLI" secondAttribute="bottom" constant="347" id="2Ap-aj-1ud"/>
+                            <constraint firstItem="cTf-Nt-gLk" firstAttribute="top" secondItem="quk-pa-sRf" secondAttribute="bottom" constant="10" id="3bb-Ym-Nn3"/>
+                            <constraint firstItem="3Pk-dh-hy6" firstAttribute="leading" secondItem="bZI-rs-a4t" secondAttribute="trailing" constant="48" id="4hN-IU-Gza"/>
+                            <constraint firstItem="pu4-DT-eDq" firstAttribute="centerX" secondItem="Fa8-v8-2yM" secondAttribute="centerX" id="6M6-eN-jmW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IbE-G6-hHz" secondAttribute="bottom" constant="347" id="7he-QM-4eh"/>
+                            <constraint firstItem="cTf-Nt-gLk" firstAttribute="leading" secondItem="NSD-nM-SLI" secondAttribute="trailing" constant="41" id="B0e-vo-H1l"/>
+                            <constraint firstItem="IbE-G6-hHz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CBz-u1-Rs2"/>
+                            <constraint firstAttribute="trailing" secondItem="Fa8-v8-2yM" secondAttribute="trailing" id="D0c-Jx-83O"/>
+                            <constraint firstItem="NSD-nM-SLI" firstAttribute="top" secondItem="qQg-jw-uOC" secondAttribute="bottom" constant="102" id="DLg-Zh-N6S"/>
+                            <constraint firstItem="quk-pa-sRf" firstAttribute="leading" secondItem="urk-v2-lCI" secondAttribute="trailing" constant="48" id="JQ9-lp-Pza"/>
+                            <constraint firstItem="urk-v2-lCI" firstAttribute="top" secondItem="bZI-rs-a4t" secondAttribute="bottom" constant="17" id="ON5-l9-rdH"/>
+                            <constraint firstAttribute="trailing" secondItem="Fa8-v8-2yM" secondAttribute="trailing" id="OPM-Lp-lOY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qQg-jw-uOC" secondAttribute="trailing" constant="133" id="PQe-JM-EjI"/>
+                            <constraint firstItem="cTf-Nt-gLk" firstAttribute="top" secondItem="quk-pa-sRf" secondAttribute="bottom" constant="10" id="QWD-68-MdU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="quk-pa-sRf" secondAttribute="trailing" constant="72" id="QYX-2I-03u"/>
+                            <constraint firstItem="3Pk-dh-hy6" firstAttribute="top" secondItem="qQg-jw-uOC" secondAttribute="bottom" constant="15" id="RYy-LI-E9w"/>
+                            <constraint firstItem="Fa8-v8-2yM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TV1-Wh-1tX"/>
+                            <constraint firstItem="NSD-nM-SLI" firstAttribute="leading" secondItem="IbE-G6-hHz" secondAttribute="trailing" constant="40" id="Tvu-Yh-TWU"/>
+                            <constraint firstItem="Fa8-v8-2yM" firstAttribute="top" secondItem="pu4-DT-eDq" secondAttribute="bottom" constant="8" id="UGa-A6-3Na"/>
+                            <constraint firstItem="quk-pa-sRf" firstAttribute="leading" secondItem="urk-v2-lCI" secondAttribute="trailing" constant="48" id="UxM-eA-773"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Pk-dh-hy6" secondAttribute="trailing" constant="72" id="V0M-QU-Yvd"/>
+                            <constraint firstItem="3Pk-dh-hy6" firstAttribute="top" secondItem="qQg-jw-uOC" secondAttribute="bottom" constant="15" id="W9K-Ag-GZ4"/>
+                            <constraint firstItem="3Pk-dh-hy6" firstAttribute="leading" secondItem="bZI-rs-a4t" secondAttribute="trailing" constant="48" id="WOg-PK-aD3"/>
+                            <constraint firstItem="bZI-rs-a4t" firstAttribute="top" secondItem="qQg-jw-uOC" secondAttribute="bottom" constant="15" id="Z61-cE-MjH"/>
+                            <constraint firstItem="quk-pa-sRf" firstAttribute="top" secondItem="3Pk-dh-hy6" secondAttribute="bottom" constant="17" id="aMu-kJ-1pz"/>
+                            <constraint firstItem="quk-pa-sRf" firstAttribute="top" secondItem="3Pk-dh-hy6" secondAttribute="bottom" constant="17" id="aWS-F8-TYD"/>
+                            <constraint firstItem="bZI-rs-a4t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="69" id="bTh-as-rbr"/>
+                            <constraint firstItem="Fa8-v8-2yM" firstAttribute="top" secondItem="pu4-DT-eDq" secondAttribute="bottom" constant="8" id="bgk-da-GyN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cTf-Nt-gLk" secondAttribute="bottom" constant="347" id="buH-Y7-Q3V"/>
+                            <constraint firstItem="V8e-ef-WNd" firstAttribute="top" secondItem="Fa8-v8-2yM" secondAttribute="bottom" constant="8" id="ddf-r2-Sr9"/>
+                            <constraint firstItem="qQg-jw-uOC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="133" id="eY0-Ew-OQh"/>
+                            <constraint firstItem="urk-v2-lCI" firstAttribute="top" secondItem="bZI-rs-a4t" secondAttribute="bottom" constant="17" id="gIt-rv-zUE"/>
+                            <constraint firstItem="IbE-G6-hHz" firstAttribute="top" secondItem="urk-v2-lCI" secondAttribute="bottom" constant="10" id="isJ-eK-9r6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V8e-ef-WNd" secondAttribute="trailing" constant="141" id="o5C-7t-ApX"/>
+                            <constraint firstItem="urk-v2-lCI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="69" id="oLv-ij-aVG"/>
+                            <constraint firstItem="V8e-ef-WNd" firstAttribute="top" secondItem="Fa8-v8-2yM" secondAttribute="bottom" constant="8" id="ojZ-u5-tu7"/>
+                            <constraint firstItem="qQg-jw-uOC" firstAttribute="top" secondItem="V8e-ef-WNd" secondAttribute="bottom" constant="23" id="own-wY-RXl"/>
+                            <constraint firstItem="V8e-ef-WNd" firstAttribute="top" secondItem="Fa8-v8-2yM" secondAttribute="bottom" constant="8" id="pSb-Gs-ce6"/>
+                            <constraint firstItem="V8e-ef-WNd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="140" id="r7t-4m-3iC"/>
+                            <constraint firstItem="pu4-DT-eDq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-17" id="rfw-0g-GX1"/>
+                            <constraint firstItem="qQg-jw-uOC" firstAttribute="top" secondItem="V8e-ef-WNd" secondAttribute="bottom" constant="23" id="udr-zv-5jk"/>
+                            <constraint firstItem="cTf-Nt-gLk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="xpF-Sc-qJN"/>
+                            <constraint firstItem="Fa8-v8-2yM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="z3H-JI-9nE"/>
+                            <constraint firstItem="IbE-G6-hHz" firstAttribute="top" secondItem="urk-v2-lCI" secondAttribute="bottom" constant="10" id="zeO-jy-1dM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="editerMsg" destination="pu4-DT-eDq" id="xVe-lZ-ccl"/>
+                        <outlet property="getMsg" destination="Fa8-v8-2yM" id="Dye-W8-56c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-287.19999999999999" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+</document>
