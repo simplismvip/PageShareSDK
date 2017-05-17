@@ -24,8 +24,7 @@
     if (self) {
      
         self.backgroundColor = JMColor(205, 205, 205);
-        
-        NSArray *array = @[@"返回", @"直线", @"曲线", @"矩形", @"椭圆"];
+        NSArray *array = @[@"返回", @"直线", @"曲线", @"矩形", @"椭圆", @"回退", @"清空"];
         
         for (int i = 0; i < array.count; i ++) {
             

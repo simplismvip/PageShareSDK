@@ -175,6 +175,7 @@
 		04FABD061ECBEBB400C59980 /* JMPaintBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD051ECBEBB400C59980 /* JMPaintBottom.m */; };
 		04FABD091ECBECF700C59980 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD081ECBECF700C59980 /* UIView+Extension.m */; };
 		04FABD0C1ECBF50E00C59980 /* JMStaticClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD0B1ECBF50E00C59980 /* JMStaticClass.m */; };
+		04FABD0F1ECC000D00C59980 /* JMBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD0E1ECC000D00C59980 /* JMBezierPath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -538,6 +539,8 @@
 		04FABD081ECBECF700C59980 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		04FABD0A1ECBF50E00C59980 /* JMStaticClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMStaticClass.h; sourceTree = "<group>"; };
 		04FABD0B1ECBF50E00C59980 /* JMStaticClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMStaticClass.m; sourceTree = "<group>"; };
+		04FABD0D1ECC000D00C59980 /* JMBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMBezierPath.h; sourceTree = "<group>"; };
+		04FABD0E1ECC000D00C59980 /* JMBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMBezierPath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1571,6 +1574,8 @@
 				04FABD051ECBEBB400C59980 /* JMPaintBottom.m */,
 				04FABD0A1ECBF50E00C59980 /* JMStaticClass.h */,
 				04FABD0B1ECBF50E00C59980 /* JMStaticClass.m */,
+				04FABD0D1ECC000D00C59980 /* JMBezierPath.h */,
+				04FABD0E1ECC000D00C59980 /* JMBezierPath.m */,
 			);
 			path = PaintPackage;
 			sourceTree = "<group>";
@@ -1772,6 +1777,7 @@
 				0408F8991ECAE10E00FE7EA2 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
 				0408F88D1ECAE10E00FE7EA2 /* XMPPMessage+XEP_0085.m in Sources */,
 				0408F87E1ECAE10E00FE7EA2 /* XMPPvCardTempBase.m in Sources */,
+				04FABD0F1ECC000D00C59980 /* JMBezierPath.m in Sources */,
 				0408F8881ECAE10E00FE7EA2 /* XMPPIQ+XEP_0066.m in Sources */,
 				0408F8A91ECAE10F00FE7EA2 /* NSXMLElement+XEP_0203.m in Sources */,
 				0408F84E1ECAE10E00FE7EA2 /* XMPPPresence.m in Sources */,
@@ -1977,6 +1983,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5ATA948SQL;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = PageShareSDK/XMPPPackage/PageShareSDK.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = PageShareSDK/Info.plist;
@@ -1988,6 +1995,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OnePlus.PageShareSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1996,6 +2004,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5ATA948SQL;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = PageShareSDK/XMPPPackage/PageShareSDK.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = PageShareSDK/Info.plist;
@@ -2007,6 +2016,7 @@
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OnePlus.PageShareSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -34,7 +34,7 @@
 
 - (IBAction)sendMsg:(id)sender {
     
-    [self.xmppMsg sendMessage:self.editerMsg.text toJID:[XMPPJID jidWithString:@"user4@10.0.0.37"] bodyType:@"text"];
+    [self.xmppMsg sendMessage:self.editerMsg.text toJID:[XMPPJID jidWithString:@"user2@10.0.0.37"] bodyType:@"text"];
 }
 
 - (IBAction)login:(id)sender {
@@ -76,7 +76,7 @@
 // 聊天室功能
 - (IBAction)creatChatRoom:(id)sender {
     
-    [self.chatRoom joinRoom:@"user1"];    
+    [self.chatRoom joinRoom:@"user1"];
 }
 
 - (IBAction)joinChatRoom:(id)sender {

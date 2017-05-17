@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "JMXmppUserInfo.h"
 #import "JMXmppSetup.h"
+#import "JMStaticClass.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,11 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [JMStaticClass setNumber:1];
+    [JMStaticClass setAlpha:1];
+    [JMStaticClass setColor:[UIColor blackColor]];
+    [JMStaticClass setLineWidth:5];
     
     [JMXmppUserInfo sharedJMXmppUserInfo].resource = @"iphone";
     [JMXmppUserInfo sharedJMXmppUserInfo].domain = @"localhost.local";
