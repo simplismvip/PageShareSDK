@@ -176,6 +176,7 @@
 		04FABD091ECBECF700C59980 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD081ECBECF700C59980 /* UIView+Extension.m */; };
 		04FABD0C1ECBF50E00C59980 /* JMStaticClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD0B1ECBF50E00C59980 /* JMStaticClass.m */; };
 		04FABD0F1ECC000D00C59980 /* JMBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD0E1ECC000D00C59980 /* JMBezierPath.m */; };
+		04FABD121ECC302A00C59980 /* PageShareSDKChatClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD111ECC302A00C59980 /* PageShareSDKChatClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -541,6 +542,8 @@
 		04FABD0B1ECBF50E00C59980 /* JMStaticClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMStaticClass.m; sourceTree = "<group>"; };
 		04FABD0D1ECC000D00C59980 /* JMBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMBezierPath.h; sourceTree = "<group>"; };
 		04FABD0E1ECC000D00C59980 /* JMBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMBezierPath.m; sourceTree = "<group>"; };
+		04FABD101ECC302A00C59980 /* PageShareSDKChatClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageShareSDKChatClient.h; sourceTree = "<group>"; };
+		04FABD111ECC302A00C59980 /* PageShareSDKChatClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageShareSDKChatClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,6 +598,8 @@
 				0408F6851ECAE0DF00FE7EA2 /* AppDelegate.m */,
 				0408F6871ECAE0DF00FE7EA2 /* ViewController.h */,
 				0408F6881ECAE0DF00FE7EA2 /* ViewController.m */,
+				04FABD101ECC302A00C59980 /* PageShareSDKChatClient.h */,
+				04FABD111ECC302A00C59980 /* PageShareSDKChatClient.m */,
 				0408F68A1ECAE0DF00FE7EA2 /* Main.storyboard */,
 				0408F68D1ECAE0DF00FE7EA2 /* Assets.xcassets */,
 				0408F68F1ECAE0DF00FE7EA2 /* LaunchScreen.storyboard */,
@@ -1722,6 +1727,7 @@
 				0408F8A31ECAE10F00FE7EA2 /* XMPPStreamManagementStanzas.m in Sources */,
 				0408F8A71ECAE10F00FE7EA2 /* XMPPAutoTime.m in Sources */,
 				0408F8C41ECAE10F00FE7EA2 /* DDASLLogger.m in Sources */,
+				04FABD121ECC302A00C59980 /* PageShareSDKChatClient.m in Sources */,
 				0408F86A1ECAE10E00FE7EA2 /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				0408F8661ECAE10E00FE7EA2 /* XMPPLastActivity.m in Sources */,
 				0408F89A1ECAE10E00FE7EA2 /* XMPPMessageArchiving.m in Sources */,

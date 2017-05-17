@@ -10,6 +10,7 @@
 #import "JMXmppUserInfo.h"
 #import "JMXmppSetup.h"
 #import "JMStaticClass.h"
+#import "PageShareSDKChatClient.h"
 
 @interface AppDelegate ()
 
@@ -22,19 +23,11 @@
     [JMStaticClass setNumber:1];
     [JMStaticClass setAlpha:1];
     [JMStaticClass setColor:[UIColor blackColor]];
-    [JMStaticClass setLineWidth:5];
+    [JMStaticClass setLineWidth:3];
     
-    [JMXmppUserInfo sharedJMXmppUserInfo].resource = @"iphone";
-    [JMXmppUserInfo sharedJMXmppUserInfo].domain = @"localhost.local";
-    [JMXmppUserInfo sharedJMXmppUserInfo].user = @"user1";
-    [JMXmppUserInfo sharedJMXmppUserInfo].pwd = @"123456";
-    [JMXmppUserInfo sharedJMXmppUserInfo].hostName = @"10.0.0.37";
-    [JMXmppUserInfo sharedJMXmppUserInfo].hostPort = 5222;
+    [[PageShareSDKChatClient sharedPageShareSDKChatClient] setConnectionProperty:@"user4" posswd:@"123456" resource:@"iphone" domain:@"oneplus.com" jid:@"" hostName:@"10.0.0.37" hostPort:5222];
     
-    [[JMXmppSetup sharedJMXmppSetup] login:^(XMPPSetupResultType type) {
-        
-        NSLog(@"%d", type);
-    }];
+    [[PageShareSDKChatClient sharedPageShareSDKChatClient] connect];
     
     return YES;
 }

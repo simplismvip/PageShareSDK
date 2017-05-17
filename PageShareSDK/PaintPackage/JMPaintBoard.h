@@ -17,4 +17,5 @@
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, weak) id <JMPaintBoardDelegate>delegate;
 - (void)paintData:(NSString *)data;
+@property (nonatomic, assign) NSInteger type;
 @end

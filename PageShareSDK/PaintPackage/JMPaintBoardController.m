@@ -10,13 +10,19 @@
 #import "JMPaintBoard.h"
 #import "JMXmppMessage.h"
 #import "JMXmppSetup.h"
+#import "PageShareSDKChatClient.h"
 
-@interface JMPaintBoardController ()<JMPaintBoardDelegate, JMXmppMessageDelegate>
-@property (nonatomic, strong) JMXmppMessage *xmppMsg;
+@interface JMPaintBoardController ()<JMPaintBoardDelegate, PageShareSDKChatClientDelegate>
 @property (nonatomic, weak) JMPaintBoard *board;
 @end
 
 @implementation JMPaintBoardController
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [PageShareSDKChatClient sharedPageShareSDKChatClient].delegate = self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,21 +33,6 @@
     board.delegate = self;
     [self.view addSubview:board];
     self.board = board;
-    
-    self.xmppMsg = [[JMXmppMessage alloc] init];
-    self.xmppMsg.delegate = self;
-}
-
-#pragma mark -- JMXmppMessageDelegate
-- (void)xmppReceive:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
-{
-    [self.board paintData:message.body];
-    NSLog(@"receive: %@--Msg: %@",sender.myJID.user, message.body);
-}
-
-- (void)xmppSend:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message
-{
-    NSLog(@"sender: %@--Msg: %@",sender.myJID.user, message.body);
 }
 
 #pragma mark -- JMPaintBoardDelegate
@@ -52,8 +43,25 @@
 
 - (void)sendData:(NSString *)data
 {
-    [self.xmppMsg sendMessage:data toJID:[XMPPJID jidWithString:@"user2@10.0.0.37"] bodyType:@"text"];
+    [[PageShareSDKChatClient sharedPageShareSDKChatClient] sendMessage:data toJID:[XMPPJID jidWithString:@"user1@oneplus.com"] bodyType:@"text"];
 }
+
+- (void)receive:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
+{
+    NSLog(@"boardReceive: %@", message.body);
+    [self.board paintData:message.body];
+}
+
+- (void)sendSuccess:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message
+{
+    NSLog(@"boardSend: %@", message.body);
+}
+
+- (void)connectResult:(XMPPSetupResultType)result
+{
+    NSLog(@"boardResult: %d", result);
+}
+
 
 - (BOOL)prefersStatusBarHidden
 {

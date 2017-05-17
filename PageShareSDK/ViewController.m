@@ -11,37 +11,71 @@
 #import "JMXmppSetup.h"
 #import "JMXmppChatRoom.h"
 #import "JMPaintBoardController.h"
+#import "PageShareSDKChatClient.h"
 
-@interface ViewController ()<JMXmppMessageDelegate, JMXmppChatRoomDelagate>
+@interface ViewController () <PageShareSDKChatClientDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *getMsg;
 @property (strong, nonatomic) IBOutlet UITextField *editerMsg;
-@property (nonatomic, strong) JMXmppMessage *xmppMsg;
-@property (nonatomic, strong) JMXmppChatRoom *chatRoom;
 @end
 
 @implementation ViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [PageShareSDKChatClient sharedPageShareSDKChatClient].delegate = self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.xmppMsg = [[JMXmppMessage alloc] init];
-    self.xmppMsg.delegate = self;
-    
-    self.chatRoom = [[JMXmppChatRoom alloc] init];
-    self.chatRoom.delegate = self;
 }
 
-- (IBAction)sendMsg:(id)sender {
-    
-    [self.xmppMsg sendMessage:self.editerMsg.text toJID:[XMPPJID jidWithString:@"user2@10.0.0.37"] bodyType:@"text"];
+- (IBAction)sendMsg:(id)sender
+{
+    [[PageShareSDKChatClient sharedPageShareSDKChatClient] sendMessage:self.editerMsg.text toJID:[XMPPJID jidWithString:@"user1@oneplus.com"] bodyType:@"text"];
 }
 
+- (void)receive:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
+{
+    self.getMsg.text = [NSString stringWithFormat:@"receive: %@", message.body];
+    NSLog(@"receive: %@", message.body);
+}
+
+- (void)sendSuccess:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message
+{
+    self.getMsg.text = [NSString stringWithFormat:@"send: %@", message.body];
+    NSLog(@"send: %@", message.body);
+}
+
+- (void)connectResult:(XMPPSetupResultType)result
+{
+    NSLog(@"result: %d", result);
+}
+
+// 打开画板
+- (IBAction)invideToChatRoom:(id)sender {
+    
+    // [[PageShareSDKChatClient sharedPageShareSDKChatClient] disConnect];
+    JMPaintBoardController *paint = [[JMPaintBoardController alloc] init];
+    [self presentViewController:paint animated:YES completion:nil];
+}
+
+- (IBAction)logout:(id)sender {
+    
+    [[PageShareSDKChatClient sharedPageShareSDKChatClient] disConnect];
+    
+    self.getMsg.text = @"退出账号成功";
+}
+
+// 注册
 - (IBAction)login:(id)sender {
-
+    
     [[JMXmppSetup sharedJMXmppSetup] resign:^(XMPPSetupResultType type) {
         
         switch (type) {
+                
             case XMPPSetupResultTypeResignSucess:
                 self.getMsg.text = @"注册账号成功";
                 break;
@@ -53,56 +87,6 @@
                 break;
         }
     }];
-}
-
-- (IBAction)logout:(id)sender {
-
-    [[JMXmppSetup sharedJMXmppSetup] logOut];
-    self.getMsg.text = @"退出账号成功";
-}
-
-- (void)xmppReceive:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
-{
-    self.getMsg.text = [NSString stringWithFormat:@"收到消息:%@", message.body];
-    NSLog(@"receive: %@--Msg: %@",sender.myJID.user, message.body);
-}
-
-- (void)xmppSend:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message
-{
-    self.editerMsg.text = @"0";
-    NSLog(@"sender: %@--Msg: %@",sender.myJID.user, message.body);
-}
-
-// 聊天室功能
-- (IBAction)creatChatRoom:(id)sender {
-    
-    [self.chatRoom joinRoom:@"user1"];
-}
-
-- (IBAction)joinChatRoom:(id)sender {
-    
-    
-}
-
-- (IBAction)destoryChatRoom:(id)sender {
-    
-    
-}
-
-- (IBAction)leaveCHatRoom:(id)sender {
-    
-    
-}
-
-- (IBAction)sendMessageToChatRoom:(id)sender {
-    
-    
-}
-
-- (IBAction)invideToChatRoom:(id)sender {
-    
-    JMPaintBoardController *paint = [[JMPaintBoardController alloc] init];
-    [self presentViewController:paint animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

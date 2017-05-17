@@ -19,7 +19,9 @@
 @property (nonatomic, strong) JMBezierPath *path;
 @property (nonatomic, strong) NSMutableArray *historyData;
 @property (nonatomic, strong) NSMutableArray *data;
-@property (nonatomic, assign) NSInteger type;
+
+@property (nonatomic, assign) CGPoint endP;
+@property (nonatomic, assign) CGPoint startP;
 @end
 
 @implementation JMPaintBoard
@@ -34,8 +36,12 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     CGPoint startPoint = [self pointWithTouches:touches];
-    self.path = [JMBezierPath paintWithPoint:startPoint Color:[JMStaticClass getColor] Width:[JMStaticClass getLineWidth]];
-    [self.historyData addObject:_path];
+    self.startP = startPoint;
+    if (self.type == 2) {
+        
+        self.path = [JMBezierPath paintWithPoint:startPoint Color:[JMStaticClass getColor] Width:[JMStaticClass getLineWidth]];
+        [self.historyData addObject:_path];
+    }
     
     // 记录数据
     NSString *point = NSStringFromCGPoint(startPoint);
@@ -48,13 +54,24 @@
     UITouch *touch = [touches anyObject];
     CGPoint previousLocation = [touch previousLocationInView:self];
     CGPoint endPoint = [self pointWithTouches:touches];
-    [_path moveFromPoint:previousLocation toPoint:endPoint];
+    self.endP = endPoint;
     
-    // 画线数据
-    NSString *pointPrevious = NSStringFromCGPoint(previousLocation);
-    [self.data addObject:pointPrevious];
-    NSString *point = NSStringFromCGPoint(endPoint);
-    [self.data addObject:point];
+    if (self.type == 2) {
+        
+        [_path moveFromPoint:previousLocation toPoint:endPoint];
+        
+        // 记录数据
+        NSString *pointPrevious = NSStringFromCGPoint(previousLocation);
+        [self.data addObject:pointPrevious];
+        
+        NSString *point = NSStringFromCGPoint(endPoint);
+        [self.data addObject:point];
+        
+    }else {
+    
+        CGPoint StartPoint = CGPointFromString(self.data.firstObject);
+        self.path = [JMBezierPath paintLineWithPoint:StartPoint endPoint:endPoint Color:[JMStaticClass getColor] Width:[JMStaticClass getLineWidth]];
+    }
     
     [self setNeedsDisplay];
 }
@@ -62,6 +79,11 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self touchesMoved:touches withEvent:event];
+    
+    if (self.type == 1) {
+        
+        [self.historyData addObject:_path];
+    }
     
     UITouch *touch = [touches anyObject];
     CGPoint previousLocation = [touch previousLocationInView:self];
@@ -74,7 +96,7 @@
     [self.data addObject:point];
     
     // 字典字符串
-    NSString *dataString = [self pointArray:self.data type:1];
+    NSString *dataString = [self pointArray:self.data type:self.type];
     
     // 发送消息
     if ([self.delegate respondsToSelector:@selector(sendData:)]) {
@@ -82,11 +104,19 @@
         [self.delegate sendData:dataString];
         [self.data removeAllObjects];
     }
+    
 }
 
 // 把之前的全部清空 重新绘制
 - (void)drawRect:(CGRect)rect
 {
+    if (self.type == 1) {
+        
+        JMBezierPath *path = [JMBezierPath paintLineWithPoint:self.startP endPoint:self.endP Color:[JMStaticClass getColor] Width:[JMStaticClass getLineWidth]];
+        [path.color set];
+        [path stroke];
+    }
+    
     if (!self.historyData.count) return;
     
     for (JMBezierPath *path in self.historyData) {
@@ -130,6 +160,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.type = 2;
         self.backgroundColor = [UIColor clearColor];
         self.historyData = [NSMutableArray array];
         self.data = [NSMutableArray array];
@@ -163,9 +194,12 @@
     
         [self undo];
     
-    }else if(type == 6){
+    }else if(type == 1){
         
-        [self clearScreen];
+        self.type = 1;
+        
+    }else{
+        self.type = 2;
     }
 }
 
@@ -175,29 +209,35 @@
     NSDictionary *dic = [self parseJSONStringToNSDictionary:data];
     NSArray *dataArr = dic[@"dt"];
     CGFloat width = [dic[@"lw"] floatValue];
-    //    NSInteger type = [dic[@"tp"] integerValue];
-//    CGFloat alpha = [dic[@"ap"] floatValue];
+    NSInteger type = [dic[@"lw"] integerValue];
     UIColor *color = [self getColor:dic[@"lc"]];
-    
     CGPoint startPoint = CGPointFromString(dataArr.firstObject);
-    self.path = [JMBezierPath paintWithPoint:startPoint Color:color Width:width];
-    [self.historyData addObject:_path];
     
-    // 记录数据
-    NSString *point = NSStringFromCGPoint(startPoint);
-    [self.data addObject:point];
-
-    for (int i = 1; i < dataArr.count; i +=2) {
+    if (type == 1) {
         
-        CGPoint pointP = CGPointFromString(dataArr[i]);
-        CGPoint pointL = CGPointFromString(dataArr[i+1]);
-        [self.path moveFromPoint:pointP toPoint:pointL];
-        [self setNeedsDisplay];
+        CGPoint endPoint = CGPointFromString(dataArr.lastObject);
+        self.path = [JMBezierPath paintLineWithPoint:startPoint endPoint:endPoint Color:[JMStaticClass getColor] Width:[JMStaticClass getLineWidth]];
+        [self.historyData addObject:self.path];
         
-//        NSString *pointPrevious = NSStringFromCGPoint(pointP);
-//        [self.data addObject:pointPrevious];
-//        NSString *point = NSStringFromCGPoint(pointL);
-//        [self.data addObject:point];
+    }else if (type == 2){
+    
+        self.path = [JMBezierPath paintWithPoint:startPoint Color:color Width:width];
+        [self.historyData addObject:_path];
+        
+        // 记录数据
+        NSString *point = NSStringFromCGPoint(startPoint);
+        [self.data addObject:point];
+        
+        for (int i = 1; i < dataArr.count; i +=2) {
+            
+            if (i+1 < dataArr.count) {
+                
+                CGPoint pointP = CGPointFromString(dataArr[i]);
+                CGPoint pointL = CGPointFromString(dataArr[i+1]);
+                [self.path moveFromPoint:pointP toPoint:pointL];
+                [self setNeedsDisplay];
+            }
+        }
     }
 }
 

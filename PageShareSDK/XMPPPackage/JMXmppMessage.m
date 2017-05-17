@@ -80,7 +80,34 @@
 #pragma mark -- XMPPStreamDelegate 收到消息回调
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message
 {
-    //回执判断
+    // 判断是否发送消息的为同一个人
+    if ([sender.myJID.user isEqualToString:[JMXmppUserInfo sharedJMXmppUserInfo].user]) {
+        
+        // 判断消失是否为空
+        if (message.body.length != 0) {
+            
+            if ([self.delegate respondsToSelector:@selector(xmppReceive:didReceiveMessage:)]) {
+                
+                [self.delegate xmppReceive:sender didReceiveMessage:message];
+            }
+        }
+    }
+}
+
+#pragma mark -- XMPPStreamDelegate 发送消息回调
+- (void)xmppStream:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message
+{
+    // 如果发送消息不为空
+    if (message.body.length != 0) {
+        
+        if ([self.delegate respondsToSelector:@selector(xmppSend:didSendMessage:)]) {
+            
+            [self.delegate xmppSend:sender didSendMessage:message];
+        }
+    }
+}
+
+//回执判断
 //    NSXMLElement *request = [message elementForName:@"request"];
 //    if (request)
 //    {
@@ -90,7 +117,7 @@
 //            XMPPMessage *msg = [XMPPMessage messageWithType:[message attributeStringValueForName:@"type"] to:message.from elementID:[message attributeStringValueForName:@"id"]];
 //            NSXMLElement *recieved = [NSXMLElement elementWithName:@"received" xmlns:@"urn:xmpp:receipts"];
 //            [msg addChild:recieved];
-//            
+//
 //            //发送回执
 //            [[JMXmppSetup sharedJMXmppSetup].xmppStream sendElement:msg];
 //        }
@@ -106,33 +133,5 @@
 //            }
 //        }
 //    }
-    
-    // 判断是否发送消息的为同一个人
-    if ([sender.myJID.user isEqualToString:[JMXmppUserInfo sharedJMXmppUserInfo].user]) {
-        
-        // 判断消失是否为空
-        if (message.body.length != 0) {
-            
-            if ([self.delegate respondsToSelector:@selector(xmppReceive:didReceiveMessage:)]) {
-                
-                [self.delegate xmppReceive:sender didReceiveMessage:message];
-            }
-        }
-    }
-}
-// 1889117
-#pragma mark -- XMPPStreamDelegate 发送消息回调
-- (void)xmppStream:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message
-{
-    // 如果发送消息不为空
-    if (message.body.length != 0) {
-        
-        if ([self.delegate respondsToSelector:@selector(xmppSend:didSendMessage:)]) {
-            
-            [self.delegate xmppSend:sender didSendMessage:message];
-        }
-    }
-}
-
 
 @end
