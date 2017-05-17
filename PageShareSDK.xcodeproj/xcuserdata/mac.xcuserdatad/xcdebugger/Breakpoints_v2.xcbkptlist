@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PageShareSDK/ViewController.m"
-            timestampString = "516621032.436326"
+            timestampString = "516684511.85965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-login:"
             landmarkType = "7">
          </BreakpointContent>

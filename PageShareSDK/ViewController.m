@@ -3,13 +3,14 @@
 //  PageShareSDK
 //
 //  Created by JM Zhao on 2017/5/16.
-//  Copyright © 2017年 JunMing. All rights reserved.
+//  Copyright © 2017年 奕甲智能 Oneplus Smartware. All rights reserved.
 //
 
 #import "ViewController.h"
 #import "JMXmppMessage.h"
 #import "JMXmppSetup.h"
 #import "JMXmppChatRoom.h"
+#import "JMPaintBoardController.h"
 
 @interface ViewController ()<JMXmppMessageDelegate, JMXmppChatRoomDelagate>
 
@@ -75,8 +76,7 @@
 // 聊天室功能
 - (IBAction)creatChatRoom:(id)sender {
     
-    self.chatRoom joinRoom:@"user1"
-    
+    [self.chatRoom joinRoom:@"user1"];    
 }
 
 - (IBAction)joinChatRoom:(id)sender {
@@ -101,9 +101,9 @@
 
 - (IBAction)invideToChatRoom:(id)sender {
     
-    
+    JMPaintBoardController *paint = [[JMPaintBoardController alloc] init];
+    [self presentViewController:paint animated:YES completion:nil];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

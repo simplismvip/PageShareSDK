@@ -169,6 +169,12 @@
 		04FABCF61ECAE3A200C59980 /* JMXmppSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABCEE1ECAE3A200C59980 /* JMXmppSetup.m */; };
 		04FABCF71ECAE3A200C59980 /* JMXmppUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABCF01ECAE3A200C59980 /* JMXmppUserInfo.m */; };
 		04FABCF81ECAE3A200C59980 /* JMXmppvCardTemp.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABCF21ECAE3A200C59980 /* JMXmppvCardTemp.m */; };
+		04FABCFD1ECBEB5200C59980 /* JMPaintBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABCFC1ECBEB5200C59980 /* JMPaintBoard.m */; };
+		04FABD001ECBEB6F00C59980 /* JMPaintBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABCFF1ECBEB6F00C59980 /* JMPaintBoardController.m */; };
+		04FABD031ECBEBA200C59980 /* JMPaintTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD021ECBEBA200C59980 /* JMPaintTop.m */; };
+		04FABD061ECBEBB400C59980 /* JMPaintBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD051ECBEBB400C59980 /* JMPaintBottom.m */; };
+		04FABD091ECBECF700C59980 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD081ECBECF700C59980 /* UIView+Extension.m */; };
+		04FABD0C1ECBF50E00C59980 /* JMStaticClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FABD0B1ECBF50E00C59980 /* JMStaticClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -520,6 +526,18 @@
 		04FABCF11ECAE3A200C59980 /* JMXmppvCardTemp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMXmppvCardTemp.h; sourceTree = "<group>"; };
 		04FABCF21ECAE3A200C59980 /* JMXmppvCardTemp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMXmppvCardTemp.m; sourceTree = "<group>"; };
 		04FABCF91ECAE5AD00C59980 /* PageShareSDK.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageShareSDK.pch; sourceTree = "<group>"; };
+		04FABCFB1ECBEB5200C59980 /* JMPaintBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPaintBoard.h; sourceTree = "<group>"; };
+		04FABCFC1ECBEB5200C59980 /* JMPaintBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPaintBoard.m; sourceTree = "<group>"; };
+		04FABCFE1ECBEB6F00C59980 /* JMPaintBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPaintBoardController.h; sourceTree = "<group>"; };
+		04FABCFF1ECBEB6F00C59980 /* JMPaintBoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPaintBoardController.m; sourceTree = "<group>"; };
+		04FABD011ECBEBA200C59980 /* JMPaintTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPaintTop.h; sourceTree = "<group>"; };
+		04FABD021ECBEBA200C59980 /* JMPaintTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPaintTop.m; sourceTree = "<group>"; };
+		04FABD041ECBEBB400C59980 /* JMPaintBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPaintBottom.h; sourceTree = "<group>"; };
+		04FABD051ECBEBB400C59980 /* JMPaintBottom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPaintBottom.m; sourceTree = "<group>"; };
+		04FABD071ECBECF700C59980 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		04FABD081ECBECF700C59980 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		04FABD0A1ECBF50E00C59980 /* JMStaticClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMStaticClass.h; sourceTree = "<group>"; };
+		04FABD0B1ECBF50E00C59980 /* JMStaticClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMStaticClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -567,6 +585,7 @@
 		0408F6801ECAE0DF00FE7EA2 /* PageShareSDK */ = {
 			isa = PBXGroup;
 			children = (
+				04FABCFA1ECBEB2800C59980 /* PaintPackage */,
 				04FABCE51ECAE3A200C59980 /* XMPPPackage */,
 				0408F6BA1ECAE10E00FE7EA2 /* XMPPFramework */,
 				0408F6841ECAE0DF00FE7EA2 /* AppDelegate.h */,
@@ -1537,6 +1556,25 @@
 			path = XMPPPackage;
 			sourceTree = "<group>";
 		};
+		04FABCFA1ECBEB2800C59980 /* PaintPackage */ = {
+			isa = PBXGroup;
+			children = (
+				04FABD071ECBECF700C59980 /* UIView+Extension.h */,
+				04FABD081ECBECF700C59980 /* UIView+Extension.m */,
+				04FABCFB1ECBEB5200C59980 /* JMPaintBoard.h */,
+				04FABCFC1ECBEB5200C59980 /* JMPaintBoard.m */,
+				04FABCFE1ECBEB6F00C59980 /* JMPaintBoardController.h */,
+				04FABCFF1ECBEB6F00C59980 /* JMPaintBoardController.m */,
+				04FABD011ECBEBA200C59980 /* JMPaintTop.h */,
+				04FABD021ECBEBA200C59980 /* JMPaintTop.m */,
+				04FABD041ECBEBB400C59980 /* JMPaintBottom.h */,
+				04FABD051ECBEBB400C59980 /* JMPaintBottom.m */,
+				04FABD0A1ECBF50E00C59980 /* JMStaticClass.h */,
+				04FABD0B1ECBF50E00C59980 /* JMStaticClass.m */,
+			);
+			path = PaintPackage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1581,8 +1619,9 @@
 		0408F6761ECAE0DF00FE7EA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = JunMing;
+				ORGANIZATIONNAME = "奕甲智能 Oneplus Smartware";
 				TargetAttributes = {
 					0408F67D1ECAE0DF00FE7EA2 = {
 						CreatedOnToolsVersion = 8.3;
@@ -1672,6 +1711,7 @@
 				0408F84C1ECAE10E00FE7EA2 /* XMPPModule.m in Sources */,
 				0408F8801ECAE10E00FE7EA2 /* XMPPvCardTempLabel.m in Sources */,
 				0408F8961ECAE10E00FE7EA2 /* XMPPMessageArchiving.xcdatamodeld in Sources */,
+				04FABD091ECBECF700C59980 /* UIView+Extension.m in Sources */,
 				0408F8C21ECAE10F00FE7EA2 /* DDAbstractDatabaseLogger.m in Sources */,
 				0408F85E1ECAE10E00FE7EA2 /* XMPPRosterMemoryStorage.m in Sources */,
 				0408F8A31ECAE10F00FE7EA2 /* XMPPStreamManagementStanzas.m in Sources */,
@@ -1682,6 +1722,7 @@
 				0408F89A1ECAE10E00FE7EA2 /* XMPPMessageArchiving.m in Sources */,
 				0408F85A1ECAE10E00FE7EA2 /* XMPPRoster.xcdatamodel in Sources */,
 				0408F8731ECAE10E00FE7EA2 /* XMPPMessage+XEP0045.m in Sources */,
+				04FABD001ECBEB6F00C59980 /* JMPaintBoardController.m in Sources */,
 				0408F85C1ECAE10E00FE7EA2 /* XMPPUserCoreDataStorageObject.m in Sources */,
 				0408F8A01ECAE10F00FE7EA2 /* XMPPMessageDeliveryReceipts.m in Sources */,
 				0408F8971ECAE10E00FE7EA2 /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
@@ -1710,6 +1751,7 @@
 				0408F87C1ECAE10E00FE7EA2 /* XMPPvCardTempAdr.m in Sources */,
 				0408F8981ECAE10E00FE7EA2 /* XMPPMessageArchiving_Message_CoreDataObject.m in Sources */,
 				0408F8551ECAE10E00FE7EA2 /* XMPPGoogleSharedStatus.m in Sources */,
+				04FABCFD1ECBEB5200C59980 /* JMPaintBoard.m in Sources */,
 				0408F8CC1ECAE10F00FE7EA2 /* GCDAsyncUdpSocket.m in Sources */,
 				0408F8921ECAE10E00FE7EA2 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
 				0408F89B1ECAE10E00FE7EA2 /* XMPPURI.m in Sources */,
@@ -1733,6 +1775,7 @@
 				0408F8881ECAE10E00FE7EA2 /* XMPPIQ+XEP_0066.m in Sources */,
 				0408F8A91ECAE10F00FE7EA2 /* NSXMLElement+XEP_0203.m in Sources */,
 				0408F84E1ECAE10E00FE7EA2 /* XMPPPresence.m in Sources */,
+				04FABD031ECBEBA200C59980 /* JMPaintTop.m in Sources */,
 				0408F8541ECAE10E00FE7EA2 /* XMPPOutgoingFileTransfer.m in Sources */,
 				0408F8491ECAE10E00FE7EA2 /* XMPPIQ.m in Sources */,
 				0408F8AF1ECAE10F00FE7EA2 /* NSXMLElement+XEP_0297.m in Sources */,
@@ -1757,6 +1800,7 @@
 				0408F8861ECAE10E00FE7EA2 /* XMPPPubSub.m in Sources */,
 				0408F8771ECAE10E00FE7EA2 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				0408F84D1ECAE10E00FE7EA2 /* XMPPParser.m in Sources */,
+				04FABD061ECBEBB400C59980 /* JMPaintBottom.m in Sources */,
 				0408F84F1ECAE10E00FE7EA2 /* XMPPStream.m in Sources */,
 				0408F84A1ECAE10E00FE7EA2 /* XMPPJID.m in Sources */,
 				0408F8621ECAE10E00FE7EA2 /* XMPPIQ+JabberRPC.m in Sources */,
@@ -1790,6 +1834,7 @@
 				04FABCF61ECAE3A200C59980 /* JMXmppSetup.m in Sources */,
 				0408F8B91ECAE10F00FE7EA2 /* XMPPSRVResolver.m in Sources */,
 				0408F8461ECAE10E00FE7EA2 /* NSXMLElement+XMPP.m in Sources */,
+				04FABD0C1ECBF50E00C59980 /* JMStaticClass.m in Sources */,
 				0408F83D1ECAE10E00FE7EA2 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
 				0408F8BC1ECAE10F00FE7EA2 /* NSString+DDXML.m in Sources */,
 				0408F8701ECAE10E00FE7EA2 /* XMPPRoomMemoryStorage.m in Sources */,
@@ -1941,7 +1986,7 @@
 					"$(PROJECT_DIR)/**",
 				);
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JunMing.PageShareSDK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OnePlus.PageShareSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1960,7 +2005,7 @@
 					"$(PROJECT_DIR)/**",
 				);
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.JunMing.PageShareSDK;
+				PRODUCT_BUNDLE_IDENTIFIER = com.OnePlus.PageShareSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

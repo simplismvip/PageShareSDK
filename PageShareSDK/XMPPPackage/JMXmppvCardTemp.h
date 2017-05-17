@@ -3,7 +3,7 @@
 //  WeChat
 //
 //  Created by JM Zhao on 2017/5/11.
-//  Copyright © 2017年 ZhaoJM. All rights reserved.
+//  Copyright © 2017年 奕甲智能 Oneplus Smartware. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
